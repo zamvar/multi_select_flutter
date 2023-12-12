@@ -26,7 +26,7 @@ class MultiSelectBottomSheet<T> extends StatefulWidget
 
   /// Toggles reset Button functionality.
   final bool resettable;
-  
+
   /// resetCallback when the left button is toggled to be a reset.
   final void Function(List<T>)? resetCallBack;
 
@@ -111,7 +111,7 @@ class MultiSelectBottomSheet<T> extends StatefulWidget
     this.selectedItemsTextStyle,
     this.separateSelectedItems = false,
     this.checkColor,
-    this.resetresettable,
+    this.resettable = false,
   });
 
   @override
@@ -337,7 +337,11 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          widget.onCancelTap(context, widget.initialValue);
+                          // widget.onCancelTap(context, widget.initialValue);
+                          if (widget.resettable) {
+                            // widget.resetCallBack(context);
+                            widget.resetCallBack!([]);
+                          }
                         },
                         child: widget.cancelText ??
                             Text(
