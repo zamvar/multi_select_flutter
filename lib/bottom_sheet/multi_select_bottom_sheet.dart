@@ -337,11 +337,11 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          // widget.onCancelTap(context, widget.initialValue);
                           if (widget.resettable) {
                             // widget.resetCallBack(context);
                             widget.resetCallBack!([]);
                           }
+                          widget.onCancelTap(context, widget.initialValue);
                         },
                         child: widget.cancelText ??
                             Text(
