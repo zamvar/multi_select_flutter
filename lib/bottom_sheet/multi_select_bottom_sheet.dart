@@ -24,6 +24,12 @@ class MultiSelectBottomSheet<T> extends StatefulWidget
   /// Toggles search functionality.
   final bool searchable;
 
+  /// Toggles reset Button functionality.
+  final bool resettable;
+  
+  /// resetCallback when the left button is toggled to be a reset.
+  final void Function(List<T>)? resetCallBack;
+
   /// Text on the confirm button.
   final Text? confirmText;
 
@@ -85,6 +91,7 @@ class MultiSelectBottomSheet<T> extends StatefulWidget
     this.title,
     this.onSelectionChanged,
     this.onConfirm,
+    this.resetCallBack,
     this.listType,
     this.cancelText,
     this.confirmText,
@@ -104,6 +111,7 @@ class MultiSelectBottomSheet<T> extends StatefulWidget
     this.selectedItemsTextStyle,
     this.separateSelectedItems = false,
     this.checkColor,
+    this.resetresettable,
   });
 
   @override
